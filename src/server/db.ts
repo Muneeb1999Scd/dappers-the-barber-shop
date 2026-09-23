@@ -28,6 +28,8 @@ export async function getDb(): Promise<Database> {
 
 export function saveDb(): void {
   if (!dbInstance) return;
+  // Vercel functions run from a read-only deployment filesystem.
+  if (process.env.VERCEL) return;
   const data = dbInstance.export();
   const buffer = Buffer.from(data);
   fs.writeFileSync(DB_FILE, buffer);

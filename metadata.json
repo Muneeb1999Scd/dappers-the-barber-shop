@@ -1,0 +1,6 @@
+{
+  "name": "Dappers | The Gentleman Choice",
+  "description": "Premium men's grooming lounge and precision barbering appointment booking platform in Gulzar-e-Hijri, Karachi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

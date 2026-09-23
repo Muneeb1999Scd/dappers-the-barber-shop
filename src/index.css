@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Light Mode Palette */
+    --color-bg-main: #f8fafc;
+    --color-bg-card: #ffffff;
+    --color-bg-card-subtle: #f1f5f9;
+    --color-bg-elevated: #e2e8f0;
+    --color-border-card: rgba(226, 232, 240, 0.8);
+    --color-border-glow: rgba(14, 165, 233, 0.2);
+    
+    --color-text-title: #0f172a;
+    --color-text-body: #475569;
+    --color-text-muted: #64748b;
+    
+    --color-accent-lime: #16a34a;
+    --color-accent-lime-bg: rgba(22, 163, 74, 0.1);
+    --color-accent-cyan: #0284c7;
+    --color-accent-cyan-bg: rgba(2, 132, 199, 0.08);
+
+    --background: var(--color-bg-main);
+    --foreground: var(--color-text-title);
+    --primary: #0284c7;
+    --primary-foreground: #ffffff;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --border: var(--color-border-card);
+  }
+
+  html.dark {
+    /* Dark Mode Palette matching the image attached by user */
+    --color-bg-main: #060b14;
+    --color-bg-card: #0c1524;
+    --color-bg-card-subtle: #0f1c30;
+    --color-bg-elevated: #15253f;
+    --color-border-card: rgba(56, 189, 248, 0.12);
+    --color-border-glow: rgba(56, 189, 248, 0.28);
+    
+    --color-text-title: #f8fafc;
+    --color-text-body: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    
+    --color-accent-lime: #a3e635;
+    --color-accent-lime-bg: rgba(163, 230, 53, 0.12);
+    --color-accent-cyan: #38bdf8;
+    --color-accent-cyan-bg: rgba(56, 189, 248, 0.12);
+
+    --background: #060b14;
+    --foreground: #f8fafc;
+    --primary: #a3e635;
+    --primary-foreground: #060b14;
+    --muted: #0c1524;
+    --muted-foreground: #94a3b8;
+    --border: rgba(56, 189, 248, 0.14);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-body);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom refined typography */
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Background utilities with glassmorphism matching image */
+.bg-theme-main {
+  background-color: var(--color-bg-main);
+}
+
+.bg-theme-card {
+  background-color: var(--color-bg-card);
+}
+
+.bg-theme-subtle {
+  background-color: var(--color-bg-card-subtle);
+}
+
+.bg-theme-elevated {
+  background-color: var(--color-bg-elevated);
+}
+
+.text-theme-title {
+  color: var(--color-text-title);
+}
+
+.text-theme-body {
+  color: var(--color-text-body);
+}
+
+.text-theme-muted {
+  color: var(--color-text-muted);
+}
+
+.border-theme-card {
+  border-color: var(--color-border-card);
+}
+
+.border-theme-glow {
+  border-color: var(--color-border-glow);
+}
+
+/* Theme accent colors matching reference image */
+.text-accent-lime {
+  color: var(--color-accent-lime);
+}
+
+.bg-accent-lime {
+  background-color: var(--color-accent-lime);
+}
+
+.text-accent-cyan {
+  color: var(--color-accent-cyan);
+}
+
+.bg-accent-cyan {
+  background-color: var(--color-accent-cyan);
+}
+
+/* Buttons */
+.btn-primary-action {
+  background-color: var(--color-accent-lime);
+  color: #060b14;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html:not(.dark) .btn-primary-action {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.btn-primary-action:hover {
+  transform: translateY(-1.5px);
+  filter: brightness(1.08);
+}
+
+.btn-outline-action {
+  border: 1px solid var(--color-border-glow);
+  color: var(--color-text-title);
+  background-color: var(--color-accent-cyan-bg);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-action:hover {
+  border-color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+}
+
+/* Reference image glass card styling */
+.glass-panel {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+html.dark .glass-panel {
+  background: rgba(12, 21, 36, 0.72);
+  border-color: rgba(56, 189, 248, 0.14);
+  box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 1px 3px 0 rgba(15, 23, 42, 0.02);
+}
+
+/* Reference image prompt pill badge */
+.prompt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background-color: var(--color-accent-cyan-bg);
+  border: 1px solid var(--color-border-glow);
+  color: var(--color-accent-cyan);
+  transition: all 0.25s ease;
+}
+
+html.dark .prompt-pill {
+  box-shadow: 0 0 15px -3px rgba(56, 189, 248, 0.15);
+}
+
+/* Reference image electric glow highlight */
+.glow-highlight {
+  text-shadow: 0 0 20px rgba(163, 230, 53, 0.35);
+}
+
+html.dark .glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-cyan);
+}
+
+/* Motion & Pulse */
+@keyframes electricPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 22px 4px rgba(163, 230, 53, 0.2);
+  }
+}
+
+.animate-electric-pulse {
+  animation: electricPulse 3.5s infinite ease-in-out;
+}
